@@ -62,29 +62,55 @@ def flip(stack):
     return flipped_stack
 
 
-def main():
-    s = Stack()
-    s2 = Stack()
-    for i in range(1, 5):
-        s.push(i)
-    print("This is s", s)
-    for i in range(s.size()):
-        item = s.pop()
-        s2.push(item)
-
-    print("S2", s2)
-    s = Stack([1, 2, 3, 4])
-    flipped = flip(s)
-    print("this is flipped", flipped)
-
-    q_orig = Queue([2, 3, 4, 5])
+def reverse(q_orig):
     q_new = Queue([])
     s = Stack()
-    while not q_orig.is_empty():
-        s.push(q_orig.deq())
+    for i in q_orig:
+        s.push(i)
+    while not s.is_empty():
         q_new.enq(s.pop())
-    print("this is s", s)
-    print("This is q_new", q_new)
+    return q_new
+
+
+def flip(stack):
+    f = Stack()
+
+    while not stack.is_empty():
+        f.push(stack.pop())
+    return f
+
+
+def main():
+    # s = Stack()
+    # s2 = Stack()
+    # for i in s:
+    #     s.push(i)
+    # print("This is s", s)
+    # for i in range(s.size()):
+    #     item = s.pop()
+    #     s2.push(item)
+    # print("S2", s2)
+    # s = Stack(['hello'])
+    # flipped = flip(s)
+    # print("this is flipped", flipped)
+    # list = '12345'
+    # q_orig = Queue([])
+    # q_new = Queue([])
+    # s = Stack()
+    # for i in list:
+    #     print("i", i)
+    #     s.push(i)
+    #     print("s", s)
+    # for i in range(s.size()):
+    #     print(i)
+    #     q_new.enq(s.pop())
+
+    # print("q_new", q_new)
+    q_orig = []
+    print(reverse(q_orig))
+    print("End of main")
+    stack = Stack(['h', 'e', 'l', 'l', 'o'])
+    print(flip(stack))
 
 
 # Don't run main on import
