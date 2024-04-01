@@ -2,21 +2,24 @@ from Queue import Queue
 # from stack import Stack
 
 
-def count_uniq(queue):
+def count_uniq(q):
+    len = 0  # Num of Char
     count = 0
-    last = None
+    last = None  # last char
     current = None
-    while not queue.is_empty():
-        current = queue.deq()
+    while not q.is_empty():
+        current = q.deq()
+        count = 1
         if current == last:
-            count += 1
+            len += 1
         last = current
-    return count
+    return len
 
 
 def main():
-    queue = Queue(['h', 'e', 'e', 'e'])
-    queue = Queue(['o', 'o', 'o', 'o', 'h', 'h'])
+    queue = Queue(['h', 'e', 'e', 'e', 'l', 'l', 'o'])
+    queue1 = Queue(['o', 'o', 'o', 'o', 'h', 'h'])
+
     print(count_uniq(queue))
     print("End of main")
 
