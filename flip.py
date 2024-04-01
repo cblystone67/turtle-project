@@ -2,16 +2,19 @@ from Queue import Queue
 from stack import Stack
 
 
-def flip(stack):
+def flip(queue):
     f = Stack()
-    while not stack.is_empty():
-        f.push(stack.pop())
-    return f
+    while not queue.is_empty():
+        f.push(queue.deq())
+    while not f.is_empty():
+        queue.enq(f.pop())
+
+    return queue
 
 
 def main():
-    stack = Stack(['h', 'e', 'l', 'l', 'o'])
-    flip(stack).print()
+    queue = Queue(['h', 'e', 'l', 'l', 'o'])
+    flip(queue).print()
     print("End of main")
 
 

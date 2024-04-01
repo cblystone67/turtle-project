@@ -8,14 +8,15 @@ def count_uniq(queue):
     current = None
     while not queue.is_empty():
         current = queue.deq()
-        if current != last:
+        if current == last:
             count += 1
         last = current
     return count
 
 
 def main():
-    queue = Queue([])
+    queue = Queue(['h', 'e', 'e', 'e'])
+    queue = Queue(['o', 'o', 'o', 'o', 'h', 'h'])
     print(count_uniq(queue))
     print("End of main")
 
