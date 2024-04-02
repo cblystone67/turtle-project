@@ -16,7 +16,7 @@ def match(string):
 
 def main():
     str1 = "([])"
-    str2 = "[(]}"
+    str2 = "( ( a )')"
     str3 = "(][)hello"
     # braces_dict = {'(': ')', '[': ']', '{': '}'}
     # stack = Stack([])
