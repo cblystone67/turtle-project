@@ -3,9 +3,11 @@ from Queue import Queue
 
 
 def count_uniq(q):
+    len = 0
     if q.is_empty():
         len = 0
-    len = 0
+    elif q.size() == 1:
+        len = 1
     current_count = 1
     current_char = q.deq()
     next_char = None
@@ -26,15 +28,15 @@ def count_uniq(q):
 
 
 def main():
-    q = Queue(['o', 'o', 'o', 'o', 'h', 'h', 'h', 'h',
-              'h', 'a', 'a', 'e', 'e', 'e', 'e', 'e', 'e'])
-    q1 = Queue(['h', 'e', 'l', 'l', 'o'])
-    q2 = Queue([])
-    que = Queue()
-    for i in range(4):
-        que.enq('oe')
-
-    print(count_uniq(q))
+    # q = Queue(['o', 'o', 'o', 'o', 'h', 'h', 'h', 'h',
+    #           'h', 'a', 'a', 'e', 'e', 'e', 'e', 'e', 'e'])
+    # q1 = Queue(['h', 'e', 'l', 'l', 'o'])
+    q2 = Queue(['m'])
+    # que = Queue()
+    # for i in range(4):
+    #     que.enq('oe')
+    # q3 = Queue(['o', 'o', 'o', 'o', 'h', 'h', 'e', 'e', 'e', 'e'])
+    print(count_uniq(q2))
     print("End of main")
 
 
