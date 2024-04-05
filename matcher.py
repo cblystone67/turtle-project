@@ -3,14 +3,17 @@ from stack import Stack
 
 
 def match(string):
-    braces_dict = {'(': ')', '[': ']', '{': '}'}
     stack = Stack([])
+    opening_braces = '([{'
+    closing_braces = ')]}'
     for char in string:
-        if char in braces_dict.keys():
+        if char in opening_braces:
             stack.push(char)
-        elif char in braces_dict.values():
-            if not stack or braces_dict[stack.pop()] != char:
+        elif char in closing_braces:
+            if stack.is_empty() or opening_braces[closing_braces.index(char)] != stack.pop():
                 return False
+    if not stack.is_empty():
+        return False
     return True
 
 
